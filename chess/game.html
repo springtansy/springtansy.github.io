@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+    <link rel="stylesheet" href="stylesheets/gamestyle.css">
+</head>
+
+<body>
+
+    <main>
+        <div id="board"></div>
+    </main>
+
+    <div id="promotion" class="promotion hidden">
+        <div class="promotion-box">
+            <button data-piece="Q">Queen</button>
+            <button data-piece="R">Rook</button>
+            <button data-piece="B">Bishop</button>
+            <button data-piece="N">Knight</button>
+        </div>
+    </div>
+
+    <div id="game-over" class="game-over hidden">
+        <div class="game-over-box">
+            <h2 id="game-over-title"></h2>
+            <p id="game-over-message"></p>
+            <button id="new-game">New Game</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="botlogic.js"></script>
+</body>
+</html>

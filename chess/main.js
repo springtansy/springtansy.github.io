@@ -803,15 +803,44 @@ function moveLeavesKingInCheck(fromRow, fromCol, toRow, toCol) {
     const movingPiece = currentPosition[fromRow][fromCol];
     const capturedPiece = currentPosition[toRow][toCol];
 
-    // Make the temporary move
+    const isEnPassant =
+        movingPiece &&
+        movingPiece[1] === "P" &&
+        fromCol !== toCol &&
+        capturedPiece === null &&
+        lastMove &&
+        lastMove.piece[1] === "P" &&
+        lastMove.piece[0] !== movingPiece[0] &&
+        lastMove.toRow === fromRow &&
+        lastMove.toCol === toCol &&
+        Math.abs(lastMove.toRow - lastMove.fromRow) === 2;
+
+    // The pawn captured by en passant is beside the moving pawn,
+    // not on the destination square.
+    let enPassantCapturedPiece = null;
+
+    if (isEnPassant) {
+        enPassantCapturedPiece =
+            currentPosition[fromRow][toCol];
+
+        currentPosition[fromRow][toCol] = null;
+    }
+
+    // Make the temporary move.
     currentPosition[toRow][toCol] = movingPiece;
     currentPosition[fromRow][fromCol] = null;
 
     const inCheck = isInCheck(movingPiece[0]);
 
-    // Undo the move
+    // Undo the move.
     currentPosition[fromRow][fromCol] = movingPiece;
     currentPosition[toRow][toCol] = capturedPiece;
+
+    // Restore the pawn captured by en passant.
+    if (isEnPassant) {
+        currentPosition[fromRow][toCol] =
+            enPassantCapturedPiece;
+    }
 
     return inCheck;
 }

@@ -34,7 +34,7 @@ let halfmoveClock = 0;
 let positionHistory = [];
 const gameMode = {
     w: "player",
-    b: "bot/minimax"
+    b: "player"
 };
 
 let castlingRights = {

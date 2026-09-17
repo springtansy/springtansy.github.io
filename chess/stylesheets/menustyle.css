@@ -1,46 +1,190 @@
-* {
-    box-sizing: border-box;
-}
-
-html,
 body {
     margin: 0;
-    width: 100%;
-    height: 100%;
-}
+    min-height: 100vh;
 
-body {
-    background: #222;
-    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #181818;
+    color: white;
+
+    font-family: Arial, sans-serif;
 }
 
 .menu {
-    min-height: 100vh;
+    width: 90%;
+    max-width: 500px;
+
+    padding: 35px;
+
+    background-color: #242424;
+
+    border-radius: 16px;
+}
+
+h1 {
+    margin-top: 0;
+
+    font-size: 48px;
+    text-align: center;
+
+    color: #f0d9b5;
+}
+
+.game-modes {
+    display: flex;
+    gap: 10px;
+}
+
+.game-modes button {
+    flex: 1;
+
+    padding: 15px;
+
+    background-color: #333;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: background-color 0.15s;
+}
+
+.game-modes button:hover {
+    background-color: #444;
+}
+
+.game-modes button.selected {
+    background-color: #b58863;
+    color: white;
+
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bot-selection {
+    margin-top: 30px;
+}
+
+.bot-selection h2 {
+    margin: 0 0 12px;
+
+    font-size: 18px;
+    color: #f0d9b5;
+}
+
+.bot-list {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+
+.bot-card {
+    width: 100%;
+
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+
+    padding: 15px;
+
+    background-color: #333;
+    color: white;
+
+    border: 2px solid transparent;
+    border-radius: 10px;
+
+    text-align: left;
+    cursor: pointer;
+
+    transition:
+        background-color 0.15s,
+        border-color 0.15s;
 }
 
-.menu h1 {
-    font-size: 64px;
-    margin: 0;
-    font-weight: 550;
+.bot-icon {
+    width: 45px;
+
+    font-size: 32px;
+    text-align: center;
+
+    margin-right: 15px;
 }
 
-.menu a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 12px 28px;
-    font-size: 24px;
+.bot-info {
+    flex: 1;
+}
+
+.bot-name {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.bot-description {
+    margin-top: 3px;
+
+    font-size: 13px;
+    color: #aaa;
+}
+
+.bot-difficulty {
+    margin-top: 6px;
+
+    font-size: 12px;
+    color: #ccc;
+}
+
+.bot-elo {
+    margin-left: 15px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    text-align: right;
+}
+
+.bot-elo span {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 10px;
+    font-weight: normal;
+
+    color: #999;
+}
+
+.bot-card:hover {
+    background-color: #3d3d3d;
+}
+
+.bot-card.selected {
+    background-color: #332b25;
+    border-color: #b58863;
+}
+
+#start-game {
+    width: 100%;
+
+    margin-top: 25px;
+    padding: 15px;
+
+    background-color: #b58863;
+    color: white;
+
     border: none;
-    border-radius: 12px;
-    background: #bbb;
-    color: #555;
-    transition: background 0.15s;
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background-color 0.15s;
 }
 
-.menu a:hover {
-    background: #ccc;
+#start-game:hover {
+    background-color: #c79a78;
 }
